@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<TITLE>NOMINA</TITLE>
+	</HEAD>
+	<BODY onload="nomina();">
+		<SCRIPT type="text/javascript">
+               // Este codigo ha sido creado en base al Ejemplo 4.5 de la página 134 del libro Fundamentos de Programación de Luis Joyanes Aguilar
+               // Nómina Semanal
+               //Programado en C++
+
+			function nomina() {
+				var horas, impuestos, nombre, sbruto, sneto, tarifa;
+				document.write("Escribe el nombre del empleado: ",'<BR/>');
+                                alert("Escribe el nombre del empleado: ")//Sirve para crear una ventana emergente, en este caso para indicarle al usuario la información que debe escribir
+				nombre = prompt();
+				document.write("Escribe las horas Trabajadas: ",'<BR/>');
+                                alert("Escribe las horas Trabajadas: ")
+				horas = Number(prompt());
+				document.write("Escribe la tarifa por hora: ",'<BR/>');//Dentro de la ventana estaran escritas las indicaciones para recordarle al usuario los datos ingresados
+                                alert("Escribe la tarifa por hora: ")
+				tarifa = Number(prompt());
+				if (horas<=35) {//si las horas trabajadas son menores o iguales a 35, el salario bruto sera el producto de las horas por la tarifa
+					sbruto = horas*tarifa;
+				} else {
+					sbruto = 35*tarifa+(horas-35)*1.5*tarifa;//Este procedimiento se lleva a cabo si no se cumple la expresión lógica
+				}
+				if (sbruto<=2000) {
+					impuestos = 0;//si el salario bruto es menor o igual a 2000 los impuestos seran 0
+				} else {
+					if (sbruto>2000 && sbruto<=2220) {
+						impuestos = (sbruto-2000)*.20;//los impuestos son igual a el producto entre la resta entre el salario bruto menos 2000, y .20
+					} else {
+						impuestos = (220*0.20)+(sbruto-2220);
+					}
+				}
+				sneto = sbruto-impuestos;
+				document.write(nombre,": su salario bruto es de $",sbruto," , sus impuestos son de $",impuestos," y su salario neto es de $",sneto,'<BR/>');
+			}
+			
+		</SCRIPT>
+	</BODY>
+</HTML>
